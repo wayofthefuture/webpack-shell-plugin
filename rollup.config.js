@@ -2,8 +2,7 @@ import babel from 'rollup-plugin-babel';
 
 export default {
   entry: 'src/webpack-shell-plugin.js',
-  format: 'umd',
-  moduleName: 'MyBundle',
+  format: 'cjs',
   plugins: [
     babel()
   ],
