@@ -38,7 +38,7 @@ export default class WebpackShellPlugin {
 
   handleScript(script) {
     if (os.platform() === 'win32' || this.options.safe) {
-      this.spreadStdoutAndStdErr(exec(script, this.puts));
+      this.spreadStdoutAndStdErr(exec(script, {maxBuffer: Number.MAX_SAFE_INTEGER}, this.puts));
     } else {
       const {command, args} = this.serializeScript(script);
       const proc = spawn(command, args, {stdio: 'inherit'});
